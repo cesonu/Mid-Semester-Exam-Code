@@ -1,17 +1,20 @@
-// Change background color of the event title on hover
-
-        document.getElementById('event-title').addEventListener('mouseover', function () {
-            this.style.backgroundColor = 'orange';
-        });
-        document.getElementById('event-title').addEventListener('mouseout', function () {
-            this.style.backgroundColor = '';
-        });
-         // Form validation and alert on submission
+document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('sign-in_form');
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        alert('Thank You for Submiting. We will get back to you ASAP');
+    const modal = document.getElementById('modal');
+
+    // Ensure modal is hidden on page load
+    modal.style.display = 'none';
+
+    // Form submission event
+    form.addEventListener('submit', (event) => {
+        event.preventDefault(); // Prevent traditional form submission
+        modal.style.display = 'flex'; // Show modal
+        form.reset(); // Reset the form after submission
     });
-    
-    
+});
+
+function closeModal() {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'none'; // Hide modal
+}
 
